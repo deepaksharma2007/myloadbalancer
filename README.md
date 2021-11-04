@@ -1,7 +1,9 @@
-Role Name
+myloadbalancer
 =========
 
-A brief description of the role goes here.
+This role is used to configure haproxy load balancer . Also this role solving challenge for *host ip’s addition dynamically* over each Managed Node in HAProxy.cfg file.
+![image](https://user-images.githubusercontent.com/64480480/140279253-0268bee5-c5d1-48ef-9061-d7da4d580684.png)
+
 
 Requirements
 ------------

@@ -1,0 +1,26 @@
+---
+# tasks file for myloadbalancer
+  - name: "installing haproxy"
+    package:
+        name: "haproxy"
+        state: present
+
+  - name: "starting haproxy service"
+    service:
+         name: "haproxy"
+         state: started
+         enabled: yes
+
+  - name: "copying configuration file of haproxy"
+    template:
+       src: haproxy.cfg.j2
+       dest: /etc/haproxy/haproxy.cfg
+    notify: REStart haproxy service
+
+  - name: Create firewall rule
+    firewalld:
+         port: "{{ lb_port }}/tcp"
+         immediate: yes
+         state: enabled
+ 
+
